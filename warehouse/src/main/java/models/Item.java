@@ -4,8 +4,10 @@ public class Item {
 	
 	private int ItemId;
 	private String ItemName;
-	private int WeightTypeId;
-	private int WeightId;
+	private String WeightType;
+	private int Weight;
+	private int zoneId;
+	private int aisle;
 	public int getItemId() {
 		return ItemId;
 	}
@@ -18,33 +20,49 @@ public class Item {
 	public void setItemName(String itemName) {
 		ItemName = itemName;
 	}
-	public int getWeightTypeId() {
-		return WeightTypeId;
+	
+	public String getWeightType() {
+		return WeightType;
 	}
-	public void setWeightTypeId(int weightTypeId) {
-		WeightTypeId = weightTypeId;
+	public void setWeightType(String weightType) {
+		WeightType = weightType;
 	}
-	public int getWeightId() {
-		return WeightId;
+	public int getWeight() {
+		return Weight;
 	}
-	public void setWeightId(int weightId) {
-		WeightId = weightId;
+	public void setWeight(int weight) {
+		Weight = weight;
+	}
+	public int getZoneId() {
+		return zoneId;
+	}
+	public void setZone(int zone) {
+		this.zoneId = zone;
+	}
+	public int getAisle() {
+		return aisle;
+	}
+	public void setAisle(int aisle) {
+		this.aisle = aisle;
 	}
 	public Item() {
 		super();
 	}
-	public Item(int itemId, String itemName, int weightTypeId, int weightId) {
+	public Item(int itemId, String itemName, String weightType, int weight, int zoneId, int aisle) {
 		super();
 		ItemId = itemId;
 		ItemName = itemName;
-		WeightTypeId = weightTypeId;
-		WeightId = weightId;
+		WeightType = weightType;
+		Weight = weight;
+		this.zoneId = zoneId;
+		this.aisle = aisle;
 	}
 	@Override
 	public String toString() {
-		return "Item [ItemId=" + ItemId + ", ItemName=" + ItemName + ", WeightTypeId=" + WeightTypeId + ", WeightId="
-				+ WeightId + "]";
+		return "Item [ItemId=" + ItemId + ", ItemName=" + ItemName + ", WeightType=" + WeightType + ", Weight=" + Weight
+				+ ", zone=" + zoneId + ", aisle=" + aisle + "]";
 	}
+	
 	
 	
 }

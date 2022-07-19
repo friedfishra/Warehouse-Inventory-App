@@ -1,16 +1,17 @@
 package com.skillstorm.daos;
 
-import java.util.List;
+import java.util.LinkedList;
 
 import models.Item;
 
 public interface ItemDAO {
 	
-	public List<Item> findAll();
-	public Item findById();
-	public Item findByName();
+	public LinkedList<Item> findAll();
+	public Item findById(int id);
+	public Item findByName(String name);
 	public Item save(Item item);
-	public void updateName(Item item);
+	public void updateItem(Item item);
 	public void delete(Item item);
+	public void deleteById(int id);
 	public void deleteMany(int[] ids);
 }
