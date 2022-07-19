@@ -8,8 +8,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 
 import com.skillstorm.conf.WarehouseDBCreds;
-
-import models.Warehouse;
+import com.skillstorm.models.Warehouse;
 
 public class WarehouseDAOImpl implements WarehouseDAO{
 

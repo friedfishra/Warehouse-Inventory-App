@@ -8,14 +8,13 @@ import java.sql.Statement;
 import java.util.LinkedList;
 
 import com.skillstorm.conf.WarehouseDBCreds;
-
-import models.Item;
+import com.skillstorm.models.Item;
 
 public class ItemDAOImpl implements ItemDAO{
 
 	@Override
 	public LinkedList<Item> findAll() {
-		String sql = "SELECT * FROM item";
+		String sql = "SELECT ItemId, ItemName, WeightType, Weight, ZoneId, Aisle FROM item";
 		
 		try (Connection conn = WarehouseDBCreds.getInstance().getConnection()){
 			Statement stmt = conn.createStatement();
@@ -35,7 +34,7 @@ public class ItemDAOImpl implements ItemDAO{
 
 	@Override
 	public Item findById(int id) {
-		String sql = "SELECT * FROM item WHERE ItemId =  + ?";
+		String sql = "SELECT ItemId, ItemName, WeightType, Weight, ZoneId, Aisle FROM item WHERE ItemId =  + ?";
 		try (Connection conn = WarehouseDBCreds.getInstance().getConnection()){
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1,  id);
@@ -55,7 +54,7 @@ public class ItemDAOImpl implements ItemDAO{
 
 	@Override
 	public Item findByName(String name) {
-		String sql = "SELECT * FROM item WHERE ItemName = ?";
+		String sql = "SELECT ItemId, ItemName, WeightType, Weight, ZoneId, Aisle FROM item WHERE ItemName = ?";
 		try (Connection conn = WarehouseDBCreds.getInstance().getConnection()){
 			
 			PreparedStatement ps = conn.prepareStatement(sql);

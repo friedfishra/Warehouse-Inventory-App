@@ -8,10 +8,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 
 import com.skillstorm.conf.WarehouseDBCreds;
-
-import models.Item;
-import models.Warehouse;
-import models.Zone;
+import com.skillstorm.models.Zone;
 
 public class ZoneDAOImpl implements ZoneDAO{
 

@@ -2,7 +2,7 @@ package com.skillstorm.daos;
 
 import java.util.LinkedList;
 
-import models.Item;
+import com.skillstorm.models.Item;
 
 public interface ItemDAO {
 	

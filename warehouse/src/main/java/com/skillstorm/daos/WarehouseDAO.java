@@ -2,7 +2,7 @@ package com.skillstorm.daos;
 
 import java.util.LinkedList;
 
-import models.Warehouse;
+import com.skillstorm.models.Warehouse;
 
 public interface WarehouseDAO {
 	

@@ -2,7 +2,7 @@ package com.skillstorm.daos;
 
 import java.util.LinkedList;
 
-import models.Zone;
+import com.skillstorm.models.Zone;
 
 public interface ZoneDAO {
 	
