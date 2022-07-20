@@ -108,19 +108,20 @@ public class ItemDAOImpl implements ItemDAO{
 
 	@Override
 	public void updateItem(Item item) {
-		String sql = "UPDATE item SET ItemId = ?, ItemName = ?, WeightType = ?, Weight = ?, ZoneId = ?, Aisle = ?"
-				+ "WHERE ItemId = ?";
+		String sql = "UPDATE item SET ItemName = ?, WeightType = ?, Weight = ?, ZoneId = ?, Aisle = ? WHERE ItemId = ?;";
+		
 		try(Connection conn = WarehouseDBCreds.getInstance().getConnection()){
 			
 			conn.setAutoCommit(false);
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, item.getItemId());
-			ps.setString(2, item.getItemName());
-			ps.setString(3,  item.getWeightType());
-			ps.setInt(4,  item.getWeight());
-			ps.setInt(5,  item.getZoneId());
-			ps.setInt(6,  item.getAisle());
+			//ps.setInt(1, item.getItemId());
+			ps.setString(1, item.getItemName());
+			ps.setString(2,  item.getWeightType());
+			ps.setInt(3,  item.getWeight());
+			ps.setInt(4,  item.getZoneId());
+			ps.setInt(5,  item.getAisle());
+			ps.setInt(6,  item.getItemId());
 			
 			int rowsAffected = ps.executeUpdate();
 			if (rowsAffected != 0) {

@@ -106,8 +106,7 @@ String sql = "SELECT * FROM zone";
 
 	@Override
 	public void update(Zone zone) {
-		String sql = "UPDATE zone SET ZoneId = ?, ZoneName = ?, WarehouseId= ?"
-				+ "WHERE ItemId = ?";
+		String sql = "UPDATE zone SET ZoneId = ?, ZoneName = ?, WarehouseId= ? WHERE ItemId = ?;";
 		try(Connection conn = WarehouseDBCreds.getInstance().getConnection()){
 			
 			conn.setAutoCommit(false);

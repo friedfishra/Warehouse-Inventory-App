@@ -18,7 +18,32 @@ import com.skillstorm.models.NotFound;
 
 @WebServlet(urlPatterns = "/items")
 public class ItemServlet extends HttpServlet{
+	
+	@Override
+	public void init() throws ServletException {
+		// This allows us to write code that is run right as the servlet is created
+		// You can establish any connections
+		
+		System.out.println("ItemServlet Created!");
+		super.init();
+	}
 
+	@Override
+	public void destroy() {
+		// If any connections were established in init
+		// Terminate those connections here
+		System.out.println("ItemServlet Destroyed!");
+		super.destroy();
+	}
+	
+	// I would prefer filters to this
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// This method activates on ALL HTTP requests to this servlet
+		System.out.println("Servicing request!");
+		super.service(req, resp); // Keep this line
+	}
+	
 	private static final long serialVersionUID = 904689259624737580L;
 	
 	ItemDAO dao = new ItemDAOImpl();
@@ -68,6 +93,7 @@ public class ItemServlet extends HttpServlet{
 		System.out.println("PUT WORKING!");
 		InputStream reqBody = req.getInputStream();
 		Item item = mapper.readValue(reqBody, Item.class);
+		dao.updateItem(item);
 		if(item != null) {
 			resp.setContentType("application/json");
 			resp.getWriter().print(mapper.writeValueAsString(item));

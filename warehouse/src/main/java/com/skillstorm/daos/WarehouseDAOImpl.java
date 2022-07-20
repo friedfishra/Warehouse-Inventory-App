@@ -106,8 +106,7 @@ public class WarehouseDAOImpl implements WarehouseDAO{
 
 	@Override
 	public void update(Warehouse warehouse) {
-		String sql = "UPDATE warehouse SET WarehouseId = ?, WarehouseName = ?"
-				+ "WHERE WarehouseId = ?";
+		String sql = "UPDATE warehouse SET WarehouseId = ?, WarehouseName = ? WHERE WarehouseId = ?;";
 		try(Connection conn = WarehouseDBCreds.getInstance().getConnection()){
 			
 			conn.setAutoCommit(false);
