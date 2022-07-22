@@ -21,8 +21,7 @@ public class ItemServlet extends HttpServlet{
 	
 	@Override
 	public void init() throws ServletException {
-		// This allows us to write code that is run right as the servlet is created
-		// You can establish any connections
+		
 		
 		System.out.println("ItemServlet Created!");
 		super.init();
@@ -30,13 +29,12 @@ public class ItemServlet extends HttpServlet{
 
 	@Override
 	public void destroy() {
-		// If any connections were established in init
-		// Terminate those connections here
+		
 		System.out.println("ItemServlet Destroyed!");
 		super.destroy();
 	}
 	
-	// I would prefer filters to this
+	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// This method activates on ALL HTTP requests to this servlet
@@ -65,7 +63,7 @@ public class ItemServlet extends HttpServlet{
 			resp.setStatus(404);
 			resp.getWriter().print(mapper.writeValueAsString("No item with the provided Id found"));
 		}
-		System.out.println(items);
+		
 		
 	}
 	

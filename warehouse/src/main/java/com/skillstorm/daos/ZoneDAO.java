@@ -14,5 +14,8 @@ public interface ZoneDAO {
 	public void delete(Zone zone);
 	public void deleteById(int id);
 	public void deleteMany(int[] ids);
+	
+	
+	public int getItemCountInZone(int zoneId);
 
 }

@@ -209,6 +209,29 @@ String sql = "SELECT * FROM zone";
 		
 	}
 	
+	@Override
+	public int getItemCountInZone(int zoneId) {
+		String sql = "SELECT COUNT(ItemId) FROM item WHERE ZoneId = ?";
+		
+		try (Connection conn = WarehouseDBCreds.getInstance().getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1,  zoneId);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getInt("COUNT(ItemId)");
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return -1;
+		
+		
+	}	
+	
+	
 	private static Zone mapRowToZone (ResultSet rs) {
 		Zone zone = new Zone();
 		try {
@@ -221,5 +244,8 @@ String sql = "SELECT * FROM zone";
 		}
 		return zone;
 	}
+
+
+	
 
 }
